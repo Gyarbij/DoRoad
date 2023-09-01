@@ -27,16 +27,16 @@ def generate_itinerary():
     destination = request.json.get('destination')
     
     # Construct the prompt
-    prompt = f"You are a travel planner, create an itinerary for a {day} day trip to {destination} for a family of {num_persons} with the {num_children} children aged 5-8. The family will depart from {departure}."
+    prompt = f"You are a experienced family travel planner, create an itinerary for a {day} day trip to {destination} that includes activities, local points of interest and cuisine for a family of {num_persons} adults with {num_children} children, aged 5-8. The family will depart from {departure}. Use the latest available weather and traffic data to plan activities."
 
     try:
         # Get response from OpenAI API
         response = openai.ChatCompletion.create(
             engine=model_deployment_name,
             messages=[{"role": "user", "content": prompt}],
-            temperature=0.7,
-            max_tokens=800,
-            top_p=0.95,
+            temperature=0.5,
+            max_tokens=4444,
+            top_p=0.91,
             frequency_penalty=0,
             presence_penalty=0
         )
@@ -53,4 +53,4 @@ def generate_itinerary():
     return jsonify({"itinerary": itinerary})
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
+    app.run(host='0.0.0.0')
