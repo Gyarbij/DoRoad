@@ -2,6 +2,7 @@
 
 trigger:
 - main
+- azure
 
 pool:
   vmImage: ubuntu-latest
