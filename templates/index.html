@@ -75,7 +75,10 @@
         $(document).ready(function() {
             $("#itinerary-form .btn").click(function(e) {
                 e.preventDefault();
-    
+
+                // Show the loading popup
+                $("#loading-popup").show();
+
                 let formData = {
                     departure: $("input[name='departure']").val(),
                     destination: $("input[name='destination']").val(),
@@ -83,7 +86,7 @@
                     number_of_children: $("input[name='number_of_children']").val(),
                     day: $("input[name='day']").val()
                 };
-    
+
                 $.ajax({
                     type: "POST",
                     url: "/generate_itinerary",
@@ -91,14 +94,24 @@
                     contentType: "application/json",
                     dataType: "json",
                     success: function(response) {
+                        // Hide the loading popup
+                        $("#loading-popup").hide();
+
                         if (response.itinerary) {
                             // Display the itinerary in the #itinerary-display div
                             $("#itinerary-display").html(response.itinerary.replace(/\n/g, '<br>'));
+                            
+                            // Scroll to the itinerary section
+                            $('html, body').animate({
+                                scrollTop: $("#about").offset().top
+                            }, 1000);
                         } else if (response.error) {
                             alert("Error: " + response.error);
                         }
                     },
                     error: function(error) {
+                        // Hide the loading popup
+                        $("#loading-popup").hide();
                         alert("An error occurred. Please try again later.");
                     }
                 });
