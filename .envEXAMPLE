@@ -1,0 +1,5 @@
+OPENAI_API_TYPE=azure
+OPENAI_API_VERSION=2023-06-01-preview
+OPENAI_API_KEY=your_openai_api_key
+OPENAI_API_BASE=https://YOURENDPOINT.openai.azure.com/
+DEPLOYMENT_NAME=your_deployment_name
