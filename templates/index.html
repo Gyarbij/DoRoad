@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoRoad</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="static/style.css">
+
+</head>
+<body>
+    <!--Header Section-->
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li style="--i:1;"><a href="#home">home</a></li>
+                <li style="--i:3;"><a href="#about">about</a></li>
+                <li style="--i:6;"><a href="#newsletter">newsletter</a></li>
+            </ul>
+        </nav>
+        <div class="menu"><i class="fas fa-bars"></i></div>
+    </header>
+    <!-- Header End-->
+    <!--Home Section-->
+    <section class="home" id="home">
+
+        <div class="video-container">
+            <video src="static/source/p1.webm" muted loop autoplay></video>
+        </div>
+        <div class="content">
+
+            <h1>do road.</h1>
+            <h3>its time to do explore</h3>
+            <div class="form-container">
+                <form id="itinerary-form">
+                    <span>departure</span>
+                    <input type="text" name="departure" placeholder="Sandy Bay, St. Vincent">
+                    <span>destination</span>
+                    <input type="text" name="destination" placeholder="Bequia">
+                    <span>adults</span>
+                    <input type="number" name="number_of_persons" placeholder="2">
+                    <span>children</span>
+                    <input type="number" name="number_of_children" placeholder="3">
+                    <span>when</span>
+                    <input type="date" name="day">
+                    <input class="btn" type="button" value="do road">
+                </form>
+            </div>            
+        </div>
+    </section>
+    <!-- Home section End-->
+
+    <!-- About Section-->
+    <section class="about" id="about">
+
+        <h1 class="heading">about us</h1>
+        <h3 class="title">explore the world with us</h3>
+        
+        <div class="row">
+        
+            <div class="image">
+                <img src="static/source/travelling.png" alt="">
+            </div>
+        
+            <div class="content">
+                <h3>your trip</h3>
+                <div id="itineraryResult" style="margin-top: 20px;"></div>
+                <a href="#"><button class="btn">read more</button></a>
+            </div>
+        
+        </div>
+        </section>
+        
+    <!-- About Section End-->
+
+    <!-- newsletter section stars  -->
+
+<section class="newsletter">
+
+    <div class="box">
+        <h1>sign up for updates</h1>
+        <p>le we link</p>
+    
+        <form action="">
+            <input type="email" placeholder="enter your email">
+            <input type="submit" class="btn" value="send">
+        </form>
+    </div>
+    
+    </section>
+    
+    <!-- newsletter section ends -->
+    
+    <!-- footer section starts  -->
+
+<section class="footer">
+
+    <div class="box">
+        <h3>do road.</h3>
+        <p>Discover the unexpected, effortlessly.</p>
+    </div>
+    
+    <h1 class="credit">created by <span>gyarbij</span></h1>
+    
+    </section>    
+    <!-- footer section ends -->
+
+    <!-- jquery library-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="static/main.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#itinerary-form .btn").click(function(e) {
+                e.preventDefault();
+    
+                let formData = {
+                    departure: $("input[name='departure']").val(),
+                    destination: $("input[name='destination']").val(),
+                    number_of_persons: $("input[name='number_of_persons']").val(),
+                    number_of_children: $("input[name='number_of_children']").val(),
+                    day: $("input[name='day']").val()
+                };
+    
+                $.ajax({
+                    type: "POST",
+                    url: "/generate_itinerary",
+                    data: JSON.stringify(formData),
+                    contentType: "application/json",
+                    dataType: "json",
+                    success: function(response) {
+                        if (response.itinerary) {
+                            alert("Generated Itinerary: " + response.itinerary);
+                        } else if (response.error) {
+                            alert("Error: " + response.error);
+                        }
+                    },
+                    error: function(error) {
+                        alert("An error occurred. Please try again later.");
+                    }
+                });
+            });
+        });
+    </script>   
+</body>
+</html>
