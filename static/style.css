@@ -641,8 +641,8 @@ header .navbar ul li a:hover{
 }
 
 .popup-content {
-  background: #fff;
+  background: #ffffff;
   padding: 2rem;
   border-radius: 0.5rem;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0.5rem 1rem rgba(26, 84, 209, 0.455);
 }
