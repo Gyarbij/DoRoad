@@ -7,10 +7,9 @@ app = Flask(__name__)
 
 # OpenAI Azure API setup using environment variables for sensitive data
 openai.api_type = os.getenv('OPENAI_API_TYPE', 'azure')
-openai.api_version = ('OPENAI_API_VERSION', '2023-06-01-preview')
+openai.api_version = os.getenv('OPENAI_API_VERSION', '2023-08-01-preview')
 openai.api_key = os.getenv('OPENAI_API_KEY', '')
 openai.api_base = os.getenv('OPENAI_API_BASE', '')
-
 model_deployment_name = os.getenv('DEPLOYMENT_NAME', '')
 
 @app.route('/')
