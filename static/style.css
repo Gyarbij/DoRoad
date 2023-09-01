@@ -126,6 +126,12 @@ header .navbar ul li a:hover{
   z-index: 0;
 }
 
+.home .video-container {
+  background-image: url('static/assets/p1.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
 .home .video-container video{
   position: absolute;
   top:0; left: 0;
@@ -133,6 +139,9 @@ header .navbar ul li a:hover{
   width: 100%;
   object-fit: cover;
   z-index: -1;
+  background-image: url('static/assets/p1.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .home .content{
@@ -645,4 +654,24 @@ header .navbar ul li a:hover{
   padding: 2rem;
   border-radius: 0.5rem;
   box-shadow: 0 0.5rem 1rem rgba(26, 84, 209, 0.455);
+}
+
+@media (max-width: 500px) {
+  #itinerary-form input[type="date"],
+  #itinerary-form .btn {
+      width: 100%;
+      margin-bottom: 1rem;
+}
+
+}
+@media (max-width:428px){ /* iPhone 12 Pro Max and below */
+  /* Adjust styles specifically for this range */
+}
+
+@media (max-width:375px){ /* iPhone X, iPhone 6/7/8 */
+  /* Adjust styles specifically for this range */
+}
+
+@media (max-width:320px){ /* iPhone 5 */
+  /* Adjust styles specifically for this range */
 }
