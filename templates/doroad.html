@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DoRoad, An AI Powered day trip planner, that effortlessly creates a full featured, family friendly itinerary., Created By: Chono N/Gyarbij, OpenAI, ChatGPT, Family AI, Vincy, Netherlands, Azure">
     <title>Do Road - discover the unexpected, effortlessly</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="static/style.css">
     <link rel="icon" type="image/ico" href="static/favicon.ico">
 </head>
@@ -14,7 +15,7 @@
     <section class="home" id="home">
 
         <div class="video-container">
-            <video src="static/assets/p1.webm" muted loop autoplay poster="static/assets/p1.jpg"></video>
+            <video muted autoplay loop playsinline src="static/assets/background.webm" type="video/webm" poster="static/assets/background.webp"></video>
         </div>
         <div class="content">
 
@@ -22,13 +23,13 @@
             <div class="form-container">
                 <form id="itinerary-form">
                     <span>departure</span>
-                    <input type="text" name="departure" placeholder="Sandy Bay, St. Vincent">
+                    <input type="text" name="departure" placeholder="Maastricht, Limburg">
                     <span>destination</span>
-                    <input type="text" name="destination" placeholder="Bequia">
+                    <input type="text" name="destination" placeholder="Utrecht">
                     <span>adults</span>
-                    <input type="number" name="number_of_persons" placeholder="2">
+                    <input type="number" name="number_of_persons" placeholder="3">
                     <span>children</span>
-                    <input type="number" name="number_of_children" placeholder="3">
+                    <input type="number" name="number_of_children" placeholder="4">
                     <span>when</span>
                     <input type="date" name="day">
                     <input class="btn" type="button" value="do road">
@@ -51,7 +52,7 @@
         
         <div class="row">
             <div class="image">
-                <img src="static/assets/travelling.png" alt="">
+                <img src="static/assets/touchroad.webp" alt="">
             </div>
             <div class="content">
                 <!-- Placeholder for the itinerary -->
@@ -77,7 +78,7 @@
     <!-- footer section ends -->
 
     <!-- jquery library-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="static/main.js"></script>
     <script>
         $(document).ready(function() {
