@@ -2,8 +2,12 @@ from flask import Flask, request, jsonify, render_template
 import openai
 import os
 import datetime
+import logging
 
 app = Flask(__name__)
+
+# Set up basic logging configuration
+logging.basicConfig(level=logging.ERROR)
 
 # OpenAI Azure API setup using environment variables for sensitive data
 openai.api_type = os.getenv('OPENAI_API_TYPE', 'azure')
@@ -47,7 +51,11 @@ def generate_itinerary():
             itinerary = "Sorry, I couldn't generate an itinerary at the moment."
 
     except Exception as e:
-        return jsonify({"error": str(e)})
+        # Log the detailed error message on the server
+        logging.error("An error occurred: %s", str(e))
+        
+        # Return a generic error message to the user
+        return jsonify({"error": "An unexpected error occurred. Please try again later."})
 
     return jsonify({"itinerary": itinerary})
 
