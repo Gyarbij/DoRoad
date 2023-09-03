@@ -26,8 +26,8 @@ def generate_itinerary():
     destination = request.json.get('destination')
     
     # Construct the prompt
-    prompt = f"You are an experienced family travel planning AI assistant named 'Pardna' that helps people find information. Create an itinerary for a {day} day trip to {destination} that includes activities, local points of interest and cuisine for a family of {num_persons} adults with {num_children} children, aged 5-8. The family will depart from {departure}. Use the latest available and historical weather and traffic data to efficently plan routes and activities."
-
+    prompt = f"{day} {destination} {num_persons} {num_children} {departure}" #Construct the prompt
+    
     try:
         # Get response from OpenAI API
         response = openai.ChatCompletion.create(
