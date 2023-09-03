@@ -1,0 +1,15 @@
+# Security pipeline
+
+trigger:
+- main
+- azure
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: MicrosoftSecurityDevOps@1
+  inputs:
+    command: 'run'
+
+  displayName: 'MicrosoftSecurityDevOps'
