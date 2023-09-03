@@ -28,7 +28,7 @@ cd DoRoad
 - Virtual Environment: Consider using a virtual environment to isolate the dependencies for the project. This can help avoid conflicts between different versions of libraries. You can create a virtual environment using:
 
 ```
-python3 -m venv dorad
+python3 -m venv doroad
 source doroad/bin/activate
 ```
 
