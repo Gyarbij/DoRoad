@@ -1,4 +1,4 @@
-# DoRoad by Gyarbij
+# DoRoad
 
 ## Why DoRoad?
 "DoRoad" is an AI-powered day trip planner designed to provide families with a seamless experience in planning their day trips and effortless create family-friendly itineraries. By leveraging the power of OpenAI, "DoRoad" creates a full-featured, family-friendly itinerary based on user-provided parameters like the departure location, destination, number of persons, and the date of the trip to generate a comprehensive intinerary, ensuring an unforgettable journey. The objective behind this project is to use AI to enhance the trip planning process, making it more efficient, personalized, and enjoyable.:
@@ -6,8 +6,10 @@
 - **Personalization**: Based on the number of adults and children, the AI crafts an itinerary that's suitable for everyone.
 - **Simplicity**: Instead of spending hours researching places to visit, get a detailed itinerary in seconds.
 
+
 ## DoRoad in Action
 Imagine planning a day trip for your family. The endless research on local attractions, family-friendly activities, and the best routes can be overwhelming to ensure every member of the family, including children, have an engaging experience. "DoRoad" simplifies this process. With just a few inputs, such as departure location, destination, number of adults, and children, and the date of the trip, "DoRoad" crafts a detailed itinerary for a day filled with a mix of adventure, cultural exploration and relaxation. Whether you're exploring the scenic beauty of Vincy or embarking on an adventure in the Netherlands, "DoRoad" ensures you discover the unexpected, effortlessly.
+
 
 ## Getting Started Self-Hosting
 
@@ -33,6 +35,7 @@ source doroad/bin/activate
 ### 2. Software Dependencies
 - Ensure you have Python and Flask installed.
 - Install the required packages using ```pip install -r requirements.txt``` (Note: `requirements.txt` should contain Flask and other necessary libraries).
+
 
 ### 3. How to run the application using environment variable file
 
@@ -60,6 +63,7 @@ load_dotenv()
 ```
 The application will now use the environment variables specified in the `.env` file.
 
+
 ### 4. How to run the application using the `export` command to set the environment variables in your terminal:
 ```
 export OPENAI_API_TYPE=azure
@@ -73,8 +77,9 @@ export DEPLOYMENT_NAME=#your_deployment_name
 ### 5. How to Run the Application
 - Set up your environment variables for the OpenAI API.
 - Navigate to the project directory in your terminal.
-- Run the command `python doroad.py`.
+- Run the command `python3 doroad.py`.
 - Open a browser and navigate to `http://localhost:5000` to access the application.
+
 
 ## Build and Test
 To build and test the application:
@@ -82,16 +87,23 @@ To build and test the application:
 1. **Building the Application**:
    - Ensure all dependencies are installed.
    - Set up your environment variables.
-   - Run the application using `python doroad.py`.
+   - Modify the application to turn on debug mode in Flask.
+   - Make any necessary changes to the application.
+   - Run the application using `python3 doroad.py`.
 
 2. **Testing the Application**:
    - Navigate to the home page.
    - Fill in the required details such as departure location, destination, number of adults, children, and the date.
    - Click on the "do road" button.
    - Wait for the AI to generate your itinerary and display it in the "your itinerary" section.
+   - Monitor the Flask debug logs for any errors.
+
 
 ## Latest Releases
 - Check the releases section of the repository for the latest stable version.
 
+
 ## API References
 - The application uses the OpenAI API with the hosted version using Azure. Ensure you have your API keys set up as environment variables.
+
+
