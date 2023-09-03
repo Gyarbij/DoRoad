@@ -37,7 +37,7 @@ source doroad/bin/activate
 - Install the required packages using ```pip install -r requirements.txt``` (Note: `requirements.txt` should contain Flask and other necessary libraries).
 
 
-### 3. How to run the application using environment variable file
+### 3. Environment Variable via file
 
 Before starting the server using the environment variable file, follow these steps:
 
@@ -64,7 +64,7 @@ load_dotenv()
 The application will now use the environment variables specified in the `.env` file.
 
 
-### 4. How to run the application using the `export` command to set the environment variables in your terminal:
+### 4. Environment Variable using the `export` command:
 ```
 export OPENAI_API_TYPE=azure
 export OPENAI_API_VERSION=2023-08-01-preview
