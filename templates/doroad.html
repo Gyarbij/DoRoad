@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="DoRoad, An AI Powered day trip planner, that effortlessly creates a full featured, family friendly itinerary., Created By: Chono N/Gyarbij, OpenAI, ChatGPT, Family AI, Vincy, Netherlands, Azure">
-    <title>Do Road - discover the unexpected, effortlessly</title>
+    <title>DoRoad - discover the unexpected, effortlessly</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="static/style.css">
     <link rel="icon" type="image/ico" href="static/favicon.ico">
@@ -19,7 +19,7 @@
         </div>
         <div class="content">
 
-            <h1>do road</h1>
+            <h1>DoROAD</h1>
             <div class="form-container">
                 <form id="itinerary-form">
                     <span>departure</span>
@@ -29,7 +29,9 @@
                     <span>adults</span>
                     <input type="number" name="number_of_persons" placeholder="3">
                     <span>children</span>
-                    <input type="number" name="number_of_children" placeholder="4">
+                    <input type="number" name="number_of_children" placeholder="3">
+                    <span>age of children</span>
+                    <input type="text" name="age_of_children" placeholder="e.g. 4 or 7-13 or 5,8,10">
                     <span>when</span>
                     <input type="date" name="day">
                     <input class="btn" type="button" value="do road">
@@ -78,7 +80,7 @@
     <!-- footer section ends -->
 
     <!-- jquery library-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha384-6e53a884255d8639ad44ea6ef3e09f4e751685a9bd9e45fb3fb39940cb2df9152786da18ffda9e98502420a398c43237" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="static/main.js"></script>
     <script>
         $(document).ready(function() {
@@ -88,11 +90,30 @@
                 // Show the loading popup
                 $("#loading-popup").show();
 
+                let ageInput = $("input[name='age_of_children']").val();
+                let ageDescription;
+
+                if (ageInput.includes('-')) {
+                    let ages = ageInput.split('-');
+                    ageDescription = `ranging from ${ages[0]} to ${ages[1]}`;
+                } else if (ageInput.includes(',')) {
+                    let ages = ageInput.split(',').map(age => age.trim());
+                    if (ages.length === 2) {
+                        ageDescription = `of ${ages[0]} and ${ages[1]}`;
+                    } else {
+                        let lastAge = ages.pop();
+                        ageDescription = `of ${ages.join(', ')} and ${lastAge}`;
+                    }
+                } else {
+                    ageDescription = `of ${ageInput}`;
+                }
+
                 let formData = {
                     departure: $("input[name='departure']").val(),
                     destination: $("input[name='destination']").val(),
                     number_of_persons: $("input[name='number_of_persons']").val(),
                     number_of_children: $("input[name='number_of_children']").val(),
+                    age_of_children: $("input[name='age_of_children']").val(),
                     day: $("input[name='day']").val()
                 };
 
