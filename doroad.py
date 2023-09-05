@@ -31,7 +31,7 @@ def generate_itinerary():
     destination = request.json.get('destination')
     
     # Construct the prompt
-    prompt = f"{day} {destination} {num_persons} {num_children} {departure}"
+    prompt = f"{day} {destination} {num_persons} {num_children} {age_children} {departure}"
     
     try:
         # Get response from OpenAI API
