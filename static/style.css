@@ -2,6 +2,9 @@
 
 :root {
     --red: #0158efe7;
+    --dark-bg: #121212;
+    --dark-text: #cfdcf9;
+    --dark-secondary: #333;
 }
 
 *, *::before, *::after {
@@ -156,8 +159,8 @@ header .navbar ul li a:hover {
 .home .content h1{
   font-size: 4rem;
   padding-top: 4vh;
-  color:#fff;
-  text-transform: uppercase;
+  color:#417fe9e7;
+  font-weight: bold;
 }
 
 .home .content h3{
@@ -673,4 +676,38 @@ header .navbar ul li a:hover {
 
 @media (max-width:320px){ /* iPhone 5 */
   /* Adjust styles specifically for this range */
+}
+/* Dark Mode Styles */
+@media (prefers-color-scheme: dark) {
+  body {
+      background-color: var(--dark-bg);
+      color: var(--dark-text);
+  }
+
+  .home .content {
+      background: rgba(32, 32, 32, 0.7); /* Adjusted for dark mode */
+  }
+
+  .title, .heading {
+      color: var(--dark-text);
+  }
+
+  .home .content .form-container form {
+      background: var(--dark-secondary);
+  }
+
+  .home .content .form-container form input {
+      background: var(--dark-bg);
+      color: var(--dark-text);
+  }
+
+  .about, .feature, .gallery, .contact {
+      background: var(--dark-bg);
+  }
+
+  .footer {
+      background: var(--dark-secondary);
+  }
+
+  /* ... Add more styles as needed ... */
 }
