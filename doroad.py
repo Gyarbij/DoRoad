@@ -26,6 +26,7 @@ def generate_itinerary():
     day = request.json.get('day')
     num_persons = request.json.get('number_of_persons')
     num_children = request.json.get('number_of_children')
+    age_children = request.json.get('age_of_children')
     departure = request.json.get('departure')
     destination = request.json.get('destination')
     
